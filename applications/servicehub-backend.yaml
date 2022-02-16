@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: servicehub-ma
+  name: servicehub-ma-fromappsofapps
   namespace: platform-gitops
   finalizers:
     - resources-finalizer.argocd.argoproj.io
