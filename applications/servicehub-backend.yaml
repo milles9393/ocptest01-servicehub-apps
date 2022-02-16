@@ -1,0 +1,31 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: servicehub-ma
+  namespace: helmappsofapps
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+  labels:
+    app./name: servicehub-ma
+spec:
+  project: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+  ignoreDifferences:
+    - group: apps.openshift.io
+      kind: DeploymentConfig
+      jsonPointers:
+      - /spec/template/spec/containers/0/image
+  destination:
+    namespace: helmappsofapps
+    server: https://kubernetes.default.svc
+  source:
+    path: servicehub-backend
+    repoURL: https://github.com/milles9393/helm-basic.git
+    targetRevision: master
+    helm:
+      values: |
+        color:
+          page: blue
