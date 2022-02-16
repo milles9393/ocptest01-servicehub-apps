@@ -4,7 +4,6 @@ metadata:
   name: servicehub-ma
   namespace: platform-gitops
   labels:
-    app./group: ma
 spec:
   destination:
     namespace: platform-gitops
