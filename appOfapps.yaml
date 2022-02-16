@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: servicehub-ma
+  name: apps-of-servicehub-ma
   namespace: platform-gitops
   labels:
 spec:
